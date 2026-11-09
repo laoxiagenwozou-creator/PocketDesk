@@ -50,7 +50,7 @@ PocketDesk 版权归 laoxiagenwozou-creator 所有，并以 GNU General Public L
 
 贡献或反馈请附设备型号、Android 版本、目标系统、重现步骤和期望结果；分享诊断信息前请先检查其中的设备信息。数据处理方式见 [隐私说明](PRIVACY.md)。
 
-正式签名通过未提交的 `android/keystore.properties` 配置。文件包含 `storeFile`、`storePassword`、`keyAlias`、`keyPassword`，其中 `storeFile` 使用相对 `android/` 的路径。没有该文件时仍可构建调试包，但不能构建正式签名包。签名文件和密钥库都不得提交。
+正式签名通过 Gradle 属性传入，不写入仓库：`POCKETDESK_STORE_FILE`、`POCKETDESK_STORE_PASSWORD`、`POCKETDESK_KEY_ALIAS`、`POCKETDESK_KEY_PASSWORD`。密钥文件和密码都应放在仓库外并自行备份。没有这些属性时仍可构建调试包，但不能构建正式签名包。
 
 ---
 
@@ -82,4 +82,4 @@ Use JDK 17, Android SDK 34 and Gradle 8.7, then run `cd android && ./gradlew ass
 
 PocketDesk is copyright laoxiagenwozou-creator and licensed under GPL-3.0. See [LICENSE](LICENSE). Modified versions distributed to others must also make their corresponding source available under GPL-3.0. Third-party components listed in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) retain their own licenses. See [privacy](PRIVACY.md) before sharing diagnostics.
 
-Release signing reads `android/keystore.properties`, which must not be committed. It contains `storeFile` (relative to `android/`), `storePassword`, `keyAlias`, and `keyPassword`. A debug build works without it.
+Release signing uses Gradle properties kept outside the repository: `POCKETDESK_STORE_FILE`, `POCKETDESK_STORE_PASSWORD`, `POCKETDESK_KEY_ALIAS`, and `POCKETDESK_KEY_PASSWORD`. Back up the key and password separately. A debug build works without them.

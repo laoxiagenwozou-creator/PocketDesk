@@ -28,15 +28,13 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-            val signingFile = rootProject.file("keystore.properties")
-            if (signingFile.exists()) {
-                val signing = Properties()
-                signingFile.inputStream().use { signing.load(it) }
+            val storeFilePath = providers.gradleProperty("POCKETDESK_STORE_FILE").orNull
+            if (storeFilePath != null) {
                 signingConfigs.create("release") {
-                    storeFile = rootProject.file(signing.getProperty("storeFile"))
-                    storePassword = signing.getProperty("storePassword")
-                    keyAlias = signing.getProperty("keyAlias")
-                    keyPassword = signing.getProperty("keyPassword")
+                    storeFile = file(storeFilePath)
+                    storePassword = providers.gradleProperty("POCKETDESK_STORE_PASSWORD").get()
+                    keyAlias = providers.gradleProperty("POCKETDESK_KEY_ALIAS").get()
+                    keyPassword = providers.gradleProperty("POCKETDESK_KEY_PASSWORD").get()
                 }
                 signingConfig = signingConfigs.getByName("release")
             }
