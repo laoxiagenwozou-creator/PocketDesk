@@ -1,0 +1,53 @@
+name: Bug report
+description: Report a reproducible PocketDesk problem.
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened
+      description: Describe the actual behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: input
+    id: phone
+    attributes:
+      label: Android phone
+      placeholder: Model and Android version
+    validations:
+      required: true
+  - type: input
+    id: host
+    attributes:
+      label: Target device and system
+      placeholder: Computer or tablet, Windows or macOS
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: PocketDesk version
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional notes
+      description: Review diagnostic logs before sharing them. They may include Bluetooth device names or addresses.

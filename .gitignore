@@ -1,0 +1,32 @@
+# Android build output
+android/.gradle/
+android/build/
+android/app/build/
+android/.kotlin/
+android/local.properties
+
+# Signing material and machine-local configuration
+*.jks
+*.keystore
+*.p12
+*.pem
+keystore.properties
+android/keystore.properties
+.env
+.env.*
+
+# Local design history, screenshots, device evidence, and private notes
+agent-work/
+reports/
+HANDOFF.md
+
+# Build artifacts (APKs stay in artifacts/ but are not tracked; checksums are)
+artifacts/*.apk
+*.apk
+*.aab
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.iml
+.idea/
