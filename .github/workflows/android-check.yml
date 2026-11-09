@@ -13,9 +13,6 @@ jobs:
         with:
           distribution: temurin
           java-version: 17
-      - uses: android-actions/setup-android@v3
-      - name: Accept Android SDK licenses
-        run: yes | sdkmanager --licenses >/dev/null
       - name: Build, test, and lint
         working-directory: android
         run: chmod +x gradlew && ./gradlew --no-daemon assembleDebug testDebugUnitTest lintDebug
